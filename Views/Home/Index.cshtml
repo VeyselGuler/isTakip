@@ -1,0 +1,30 @@
+﻿@model List<JobModel>
+
+
+<section id="tum-isler">
+    <h2>Tüm İşler</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>İş</th>
+            <th>Durumu</th>
+            <th>Çalışan</th>
+            <th>Oluşturulma Tarihi</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Job</td>
+                <td>@item.Durum</td>
+                <td>@item.AtananKisi</td>
+                <td>@item.CreatedTime.ToString("dd.MM.yyyy HH:mm")</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+    <p>
+        <a href="/admin/addjob">+ Yeni İş Oluştur</a>
+    </p>
+</section>

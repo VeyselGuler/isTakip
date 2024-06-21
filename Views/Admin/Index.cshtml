@@ -1,0 +1,30 @@
+@model List<JobModel>
+
+<section id="is-detayi">
+    @foreach (var item in Model)
+    {
+        <h2>@item.Job</h2>
+        <p>@item.Detail</p>
+        <p>
+            <strong>Atanan Kişi:</strong> @item.AtananKisi
+        </p>
+        <div class="actions">
+            <a href="/Admin/duzenle/@item.Id"><button>Düzenle</button></a>
+            <a href="/Admin/sil/@item.Id" onclick="return confirm('Emin misin?')">
+                <button>Sil</button>
+            </a>
+            <label for="durumu">Durumu:</label>
+            <form action="/admin/SaveEdit/@item.Id" method="post">
+                <select name="durum">
+                    <option value="" disabled selected>@item.Durum</option>
+                    <option value="Aktif">Aktif</option>
+                    <option value="Tamamlandı">Tamamlandı</option>
+                </select>
+                <button>Değiştir</button>
+            </form>
+        </div>
+        <p>
+            <strong>İşin Açılma Tarihi:</strong> @item.CreatedTime
+        </p>
+    }
+</section>

@@ -1,0 +1,22 @@
+@model JobModel
+
+<h2 class="mb-4">İşi düzenle</h2>
+
+<form class="row g-3" method="post">
+    <div class="mb-3">
+        <label class="form-label">İş</label>
+        <input required type="text" value="@Model.Job" class="form-control" name="job">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Atanan Kişi</label>
+        <input required type="text" value="@Model.AtananKisi" class="form-control" name="atanankisi">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">İş Detayları</label>
+        <textarea required class="form-control" name="detail">@Model.Detail</textarea>
+    </div>
+    <button class="btn btn-success">Ekle</button>
+</form>
+<div class="alert @ViewBag.MessageCssClass" role="alert">
+    @ViewBag.Message
+</div>
